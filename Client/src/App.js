@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
-import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React, { useState } from "react";
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import Yeah from './yeah';
-import Login from './login';
+import Yeah from "./yeah";
+import Login from "./login";
+import Page404 from "./404";
 
 function App() {
-
   return (
     <Router>
       {/* { isComplete && <Redirect to="/yeah" />}
@@ -31,6 +26,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <Login />
+          </Route>
+          <Route path="*">
+            <Page404 />
           </Route>
         </Switch>
       </div>
