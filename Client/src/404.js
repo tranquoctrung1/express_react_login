@@ -1,6 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 Page404.propTypes = {};
 

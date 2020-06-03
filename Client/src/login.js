@@ -1,11 +1,16 @@
-import React, { useState } from "react";
 import axios from "axios";
-import "./App.css";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
+import "./App.css";
+import Context from "./context";
 
 function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const { isLogin, setIsLogin } = useContext(Context);
+
+  console.log(isLogin);
 
   const history = useHistory();
 
@@ -17,13 +22,15 @@ function Login(props) {
       })
       .then(function (response) {
         if (response.data === 1) {
-          // setIsComplete(true);
+          //   setIsComplete(true);
           // return <Redirect to="/yeah" />
-          // userHasAuthenticated(true); // set login
+          //   userHasAuthenticated(true); // set login
+          setIsLogin(true);
           history.push("/yeah");
         } else {
           // setIsComplete(false);
           // return <Redirect to="/"/>
+          setIsLogin(false);
           alert("Oh no!!");
           history.push("/");
         }
